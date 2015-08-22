@@ -1,0 +1,30 @@
+Package.describe({
+  name: 'samcorcos:iframe',
+  version: '0.0.1',
+  // Brief, one-line summary of the package.
+  summary: '',
+  // URL to the Git repository containing the source code for this package.
+  git: '',
+  // By default, Meteor will default to using README.md for documentation.
+  // To avoid submitting documentation, set this field to null.
+  documentation: 'README.md'
+});
+
+Package.onUse(function(api) {
+  api.versionsFrom('1.1.0.3');
+  api.addFiles([
+    'iframe.css',
+    'components/components.jsx'
+  ]);
+  api.use([
+    'react',
+    'tracker',
+    'jquery'
+  ])
+});
+
+Package.onTest(function(api) {
+  api.use('tinytest');
+  api.use('samcorcos:iframe');
+  api.addFiles('iframe-tests.js');
+});
